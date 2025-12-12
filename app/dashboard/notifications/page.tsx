@@ -227,8 +227,8 @@ You can make the payment at the college office during working hours.
 Thank you,
 College Administration
 City Computer College
-📞 Contact: 9876543210
-🏫 Office Hours: 9 AM - 5 PM (Mon-Fri)`
+Contact: ${process.env.COLLEGE_PHONE || '+92 306 6556222'}
+Office Hours: 9 AM - 5 PM (Mon-Fri)`
   }
 
   const toggleStudentSelection = (studentId: string) => {

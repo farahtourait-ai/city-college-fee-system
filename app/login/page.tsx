@@ -27,9 +27,9 @@ export default function Login() {
   const validateAdminCredentials = (email: string, password: string): boolean => {
     // Simple validation - in production use proper password hashing
     const validCredentials = [
-      { email: 'hassancitycollege222@gmail.com', password: 'admin123' },
-      { email: 'farahtourait@gmail.com', password: 'admin123' },
-      { email: 'hassanrashid339@gmail.com', password: 'admin123' }
+      { email: 'hassancitycollege222@gmail.com', password: 'youarenot@8765' },
+      { email: 'farahtourait@gmail.com', password: 'youarenot@8765' },
+      { email: 'hassanrashid339@gmail.com', password: 'youarenot@8765' }
     ]
     
     return validCredentials.some(cred => 

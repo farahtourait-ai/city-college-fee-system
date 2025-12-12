@@ -140,9 +140,9 @@ export default function FeesPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'hassancitycollege222@gmail.com', // Your admin email
+          to: process.env.ADMIN_EMAIL || 'hassancitycollege222@gmail.com', // Your admin email
           name: 'Admin',
-          message: `✅ PAYMENT CONFIRMED: ${params.studentName} (Roll: ${params.studentRoll}) paid ₹${params.amount} for ${params.month} ${params.year}. Challan No: ${params.challanNumber || 'Not provided'}.`,
+          message: ` PAYMENT CONFIRMED: ${params.studentName} (Roll: ${params.studentRoll}) paid ₹${params.amount} for ${params.month} ${params.year}. Challan No: ${params.challanNumber || 'Not provided'}.`,
           rollNumber: params.studentRoll,
           pendingAmount: params.amount,
           course: 'Fee Payment',
@@ -189,9 +189,9 @@ export default function FeesPage() {
       fetchFeeRecords()
       
       if (emailSent) {
-        alert('✅ Fee marked as paid! Confirmation email sent to admin.')
+        alert('Fee marked as paid! Confirmation email sent to admin.')
       } else {
-        alert('✅ Fee marked as paid! (Email notification failed)')
+        alert('Fee marked as paid! (Email notification failed)')
       }
     } catch (error) {
       console.error('Error updating fee:', error)
@@ -324,7 +324,7 @@ export default function FeesPage() {
             <div class="footer">
                 <p><strong>College Administration</strong><br>
                 City Computer College<br>
-                9876543210 | College Address</p>
+                ${process.env.COLLEGE_PHONE || '+92 306 6556222'} | ${process.env.COLLEGE_ADDRESS || 'Jhang road upper floor punjab bank, Gojra Faislabad'}</p>
               </div>
               <div style="margin-top: 20px; font-size: 12px; color: #666; Text-align: center;">
                 This is a computer generated receipt. No signature required.
@@ -567,7 +567,7 @@ export default function FeesPage() {
                             className={styles.receiptButton}
                             title="Generate payment receipt"
                           >
-                            🧾 Receipt
+                            Receipt
                           </button>
                         )}
                       </div>

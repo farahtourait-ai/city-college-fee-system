@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
 
     // Check if Gmail credentials are configured
     if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
-      console.error('❌ Gmail credentials missing in .env.local');
+      console.error('Gmail credentials missing in .env.local');
       return NextResponse.json(
         { 
           error: 'Gmail configuration missing',
@@ -86,9 +86,9 @@ ${overdueDays > 0 ? `Overdue Days: ${overdueDays} days` : ''}
 
 COLLEGE CONTACT:
 ----------------
-📞 Phone: ${process.env.COLLEGE_PHONE || '9876543210'}
-🏫 Office Hours: 9:00 AM - 5:00 PM (Monday to Friday)
-📍 Address: ${process.env.COLLEGE_ADDRESS || '123 College Road, City'}
+Phone: ${process.env.COLLEGE_PHONE || '+92 306 6556222'}
+Office Hours: 9:00 AM - 5:00 PM (Monday to Friday)
+Address: ${process.env.COLLEGE_ADDRESS || 'Jhang road upper floor punjab bank, Gojra Faislabad'}
 
 Please visit the college office at your earliest convenience to clear the pending dues.
 
@@ -115,20 +115,20 @@ This is an automated reminder. Please do not reply to this email.
       }
     };
 
-    console.log('📧 Sending email via Gmail...');
+    console.log('Sending email via Gmail...');
 
     // ===== SEND EMAIL =====
     const info = await transporter.sendMail(mailOptions);
     
-    console.log('✅ Gmail email sent successfully!');
-    console.log('📧 Message ID:', info.messageId);
-    console.log('👤 Sent to:', name, `<${to}>`);
-    console.log('📤 Sent from:', process.env.GMAIL_USER);
+    console.log('Gmail email sent successfully!');
+    console.log('Message ID:', info.messageId);
+    console.log('Sent to:', name, `<${to}>`);
+    console.log('Sent from:', process.env.GMAIL_USER);
 
     // Test URL for development
     const testUrl = nodemailer.getTestMessageUrl(info);
     if (testUrl) {
-      console.log('🔗 Preview URL:', testUrl);
+      console.log('Preview URL:', testUrl);
     }
 
     return NextResponse.json({
@@ -141,7 +141,7 @@ This is an automated reminder. Please do not reply to this email.
     });
 
   } catch (error: any) {
-    console.error('❌ Gmail error details:', {
+    console.error('Gmail error details:', {
       name: error.name,
       code: error.code,
       message: error.message,
@@ -326,7 +326,7 @@ function createEmailHTML(data: {
             </div>
             
             <div class="student-info">
-                <h3>📋 Student Details</h3>
+                <h3>Student Details</h3>
                 <div class="info-row">
                     <span class="info-label">Roll Number:</span>
                     <span class="info-value">${data.rollNumber}</span>
@@ -350,10 +350,10 @@ function createEmailHTML(data: {
             </div>
             
             <div class="contact-box">
-                <h3>🏫 College Contact Information</h3>
-                <p>📞 Phone: ${process.env.COLLEGE_PHONE || '9876543210'}</p>
-                <p>🕒 Office Hours: 9:00 AM - 5:00 PM (Monday to Friday)</p>
-                <p>📍 Address: ${process.env.COLLEGE_ADDRESS || '123 College Road, City'}</p>
+                <h3>College Contact Information</h3>
+                <p>Phone: ${process.env.COLLEGE_PHONE || '+92 306 6556222'}</p>
+                <p>Office Hours: 9:00 AM - 5:00 PM (Monday to Friday)</p>
+                <p>Address: ${process.env.COLLEGE_ADDRESS || 'Jhang road upper floor punjab bank, Gojra Faislabad'}</p>
             </div>
             
             <p>Please visit the college office at your earliest convenience to clear the pending dues and avoid any inconvenience.</p>
@@ -364,7 +364,7 @@ function createEmailHTML(data: {
                 ${process.env.COLLEGE_NAME || 'City Computer College'}</p>
                 <p class="note">
                     This is an automated reminder. Please do not reply to this email.<br>
-                    For queries, please contact: ${process.env.COLLEGE_PHONE || '9876543210'}
+                    For queries, please contact: ${process.env.COLLEGE_PHONE || '+92 306 6556222'}
                 </p>
             </div>
         </div>

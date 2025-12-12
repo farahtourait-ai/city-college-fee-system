@@ -132,7 +132,7 @@ export default function DefaultersPage() {
         .filter(student => student.total_pending > 0)
         .sort((a, b) => b.total_pending - a.total_pending)
 
-      console.log(`✅ Found ${defaultersList.length} defaulters`)
+      console.log(`Found ${defaultersList.length} defaulters`)
       setDefaulters(defaultersList)
       setFilteredDefaulters(defaultersList)
     } catch (error) {
@@ -198,9 +198,9 @@ export default function DefaultersPage() {
       }
 
       if (result.success) {
-        alert(`✅ Email sent to ${defaulter.name}!\n\nEmail: ${defaulter.email}\nAmount: ₹${defaulter.total_pending.toLocaleString()}`)
+        alert(`Email sent to ${defaulter.name}!\n\nEmail: ${defaulter.email}\nAmount: ₹${defaulter.total_pending.toLocaleString()}`)
       } else {
-        alert(`❌ Email failed: ${result.error || 'Unknown error'}`)
+        alert(`Email failed: ${result.error || 'Unknown error'}`)
       }
 
     } catch (error) {

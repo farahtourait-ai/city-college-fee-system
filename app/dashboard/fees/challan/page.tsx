@@ -355,7 +355,7 @@ export default function ChallanGeneration() {
     if (hasExistingChallan(student.id)) {
       const existingChallanNo = getExistingChallanNumber(student.id)
       const proceed = confirm(
-        `⚠️ Challan already exists for ${student.name} for ${selectedMonth} ${selectedYear}.\n` +
+        `Challan already exists for ${student.name} for ${selectedMonth} ${selectedYear}.\n` +
         `Challan Number: ${existingChallanNo}\n\n` +
         `Do you want to generate a new one anyway? (This will create a duplicate)`
       )
@@ -407,7 +407,7 @@ export default function ChallanGeneration() {
 
     if (studentsWithExistingChallans > 0) {
       const proceed = confirm(
-        `⚠️ ${studentsWithExistingChallans} students already have challans for ${selectedMonth} ${selectedYear}.\n\n` +
+        `${studentsWithExistingChallans} students already have challans for ${selectedMonth} ${selectedYear}.\n\n` +
         `Generating for all students will create duplicates for these students.\n\n` +
         `Do you want to continue?`
       )
@@ -460,7 +460,7 @@ export default function ChallanGeneration() {
         // Refresh existing challans list
         await checkExistingChallans()
         
-        alert(`✅ Successfully generated challans for ${feeRecords.length} students for ${selectedMonth} ${selectedYear}!\n` +
+        alert(`Successfully generated challans for ${feeRecords.length} students for ${selectedMonth} ${selectedYear}!\n` +
               `(${studentsWithExistingChallans} students already had challans and were skipped)`)
         
         const firstStudent = studentsToProcess[0]
@@ -845,7 +845,7 @@ export default function ChallanGeneration() {
               
               ${generatedChallan.duplicate ? `
                 <div class="duplicate-warning">
-                  ⚠️ <strong>Note:</strong> This is a duplicate challan for ${generatedChallan.month} ${generatedChallan.year}
+                  <strong>Note:</strong> This is a duplicate challan for ${generatedChallan.month} ${generatedChallan.year}
                 </div>
               ` : ''}
               
@@ -1042,7 +1042,7 @@ export default function ChallanGeneration() {
             {/* Challan Status Info */}
             {selectedMonth && selectedYear && (
               <div className={styles.quickTips} style={{background: '#f0f9ff', borderColor: '#bae6fd'}}>
-                <h4>📅 Challan Status for {selectedMonth} {selectedYear}</h4>
+                <h4>Challan Status for {selectedMonth} {selectedYear}</h4>
                 <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
                   <div>
                     <strong>Total Students:</strong> {students.length}

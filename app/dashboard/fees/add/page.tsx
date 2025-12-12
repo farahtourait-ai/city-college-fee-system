@@ -97,7 +97,7 @@ function AddFeeContent() {
     }
   }
   
-  // ✅ NEW: Payment confirmation email function
+  // NEW: Payment confirmation email function
   const sendPaymentConfirmationEmail = async (params: {
     studentName: string
     studentRoll: string
@@ -114,9 +114,9 @@ function AddFeeContent() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'hassancitycollege222@gmail.com',
+          to: process.env.ADMIN_EMAIL || 'hassancitycollege222@gmail.com',
           name: 'Admin',
-          message: `✅ PAYMENT CONFIRMED: ${params.studentName} (Roll: ${params.studentRoll}) paid ₹${params.amount} for ${params.month} ${params.year}. Challan No: ${params.challanNumber || 'Not provided'}.`,
+          message: `PAYMENT CONFIRMED: ${params.studentName} (Roll: ${params.studentRoll}) paid ₹${params.amount} for ${params.month} ${params.year}. Challan No: ${params.challanNumber || 'Not provided'}.`,
           rollNumber: params.studentRoll,
           pendingAmount: params.amount,
           course: 'Fee Payment',
@@ -145,7 +145,7 @@ function AddFeeContent() {
         return
       }
 
-      console.log(`✅ Loaded ${data?.length || 0} courses:`)
+      console.log(` Loaded ${data?.length || 0} courses:`)
       data?.forEach(course => {
         console.log(`  - ${course.name}: ₹${course.monthly_fee}/month`)
       })
@@ -172,7 +172,7 @@ function AddFeeContent() {
         return
       }
 
-      console.log(`✅ Loaded ${data?.length || 0} students`)
+      console.log(`Loaded ${data?.length || 0} students`)
       
       // Fetch course details for each student
       if (data && data.length > 0) {
@@ -292,7 +292,7 @@ function AddFeeContent() {
       }
     }
     
-    console.warn(`⚠️ Could not find fee for student ${student.name}, course: "${student.course}"`)
+    console.warn(`Could not find fee for student ${student.name}, course: "${student.course}"`)
     console.warn('Available courses:', courses.map(c => `${c.name}: ₹${c.monthly_fee}`))
     
     // Default fallback
@@ -404,7 +404,7 @@ function AddFeeContent() {
       } else {
         setSuccess(`Monthly fee for ${formData.month} ${formData.year} added successfully!`)
         
-        // ✅ Send payment confirmation email if status is "paid"
+        // Send payment confirmation email if status is "paid"
         if (formData.status === 'paid') {
           const selectedStudent = students.find(s => s.id === formData.student_id)
           if (selectedStudent) {
@@ -419,7 +419,7 @@ function AddFeeContent() {
             })
             
             if (emailSent) {
-              setSuccess(prev => prev + ' ✅ Confirmation email sent to admin.')
+              setSuccess(prev => prev + ' Confirmation email sent to admin.')
             } else {
               setSuccess(prev => prev + ' (Email notification failed)')
             }
@@ -470,7 +470,7 @@ function AddFeeContent() {
 
   // Add a function to check what's in the database
   const checkDatabaseCourses = async () => {
-    console.log('🔍 Checking database courses...')
+    console.log('Checking database courses...')
     const { data, error } = await supabase
       .from('courses')
       .select('*')
@@ -524,7 +524,7 @@ function AddFeeContent() {
                 cursor: 'pointer'
               }}
             >
-              🔍 Check Database Courses
+               Check Database Courses
             </button>
 
             {error && (
@@ -675,7 +675,7 @@ function AddFeeContent() {
                   </select>
                   <small className={styles.helperText}>
                     {formData.status === 'paid' 
-                      ? '✅ Payment date will be set to today & confirmation email sent to admin' 
+                      ? 'Payment date will be set to today & confirmation email sent to admin' 
                       : 'Student will appear in defaulters list until paid'
                     }
                   </small>
@@ -754,7 +754,7 @@ function AddFeeContent() {
                   <li>Due date is automatically set to 10th of each month</li>
                   <li>System prevents duplicate fees for same month/year</li>
                   <li>Add challan number when marking fees as paid</li>
-                  <li><strong>✅ Automatic email confirmation sent to admin for paid fees</strong></li>
+                  <li><strong>Confirmation email sent to admin for paid fees</strong></li>
                   <li>Generate professional receipts for paid fees</li>
                   <li>Pending monthly fees will appear in defaulters list</li>
                 </ul>

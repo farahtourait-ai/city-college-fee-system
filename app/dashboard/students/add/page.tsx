@@ -337,7 +337,7 @@ export default function AddStudent() {
                     value={formData.phone}
                     onChange={handleChange}
                     className={styles.input}
-                    placeholder="e.g., 9876543210"
+                    placeholder={`e.g., ${process.env.COLLEGE_PHONE || '+92 306 6556222'}`}
                   />
                 </div>
 
@@ -361,7 +361,7 @@ export default function AddStudent() {
                     value={formData.email}
                     onChange={handleChange}
                     className={styles.input}
-                    placeholder="e.g., rajesh@citycollege.edu"
+                    placeholder="e.g., example@citycollege.edu"
                   />
                 </div>
 
@@ -462,7 +462,7 @@ export default function AddStudent() {
               {selectedCourse && (
                 <div style={{margin: '1.5rem 0', padding: '1.5rem', background: '#f0f9ff', borderRadius: '8px', border: '1px solid #bae6fd'}}>
                   <h4 style={{color: '#0369a1', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                    📊 Fee Summary - {selectedCourse.name}
+                    Fee Summary - {selectedCourse.name}
                   </h4>
                   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem'}}>
                     <div style={{background: 'white', padding: '1rem', borderRadius: '6px', borderLeft: '4px solid #3b82f6'}}>
@@ -525,7 +525,7 @@ export default function AddStudent() {
               {/* Course Information Display */}
               {selectedCourse && (
                 <div className={styles.courseInfo}>
-                  <h4>📚 Course Details</h4>
+                  <h4>Course Details</h4>
                   <div className={styles.courseDetails}>
                     <p><strong>Course:</strong> {selectedCourse.name}</p>
                     <p><strong>Duration:</strong> {selectedCourse.duration_months} month{selectedCourse.duration_months !== 1 ? 's' : ''}</p>

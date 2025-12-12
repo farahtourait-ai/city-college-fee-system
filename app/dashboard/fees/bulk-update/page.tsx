@@ -106,7 +106,7 @@ export default function BulkUpdateFees() {
     }
   }
 
-  // ✅ NEW: Payment confirmation email function for bulk updates
+  //  NEW: Payment confirmation email function for bulk updates
   const sendBulkPaymentConfirmationEmail = async (payments: Array<{
     studentName: string
     studentRoll: string
@@ -129,9 +129,9 @@ export default function BulkUpdateFees() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'hassancitycollege222@gmail.com', // Your admin email
+          to: process.env.ADMIN_EMAIL || 'hassancitycollege222@gmail.com', // Your admin email
           name: 'Admin',
-          message: `📋 BULK PAYMENT CONFIRMED - ${payments.length} Students\n\n${studentList}\n\nTotal Amount: ₹${totalAmount.toLocaleString()}\nDate: ${new Date().toLocaleDateString()}`,
+          message: `BULK PAYMENT CONFIRMED - ${payments.length} Students\n\n${studentList}\n\nTotal Amount: ₹${totalAmount.toLocaleString()}\nDate: ${new Date().toLocaleDateString()}`,
           rollNumber: 'BULK',
           pendingAmount: totalAmount,
           course: 'Bulk Fee Payment',
@@ -225,10 +225,10 @@ export default function BulkUpdateFees() {
         }
       }
 
-      // ✅ Send bulk payment confirmation email
+      // Send bulk payment confirmation email
       const emailSent = await sendBulkPaymentConfirmationEmail(paymentDetails)
 
-      alert(`✅ Successfully marked ${paidUpdates.length} fees as paid! ${emailSent ? 'Confirmation email sent to admin.' : '(Email notification failed)'}`)
+      alert(`Successfully marked ${paidUpdates.length} fees as paid! ${emailSent ? 'Confirmation email sent to admin.' : '(Email notification failed)'}`)
       router.push('/dashboard/fees')
     } catch (error) {
       console.error('Error updating fees:', error)
@@ -303,7 +303,7 @@ export default function BulkUpdateFees() {
     })
     
     setPaymentUpdates(updatedPayments)
-    alert(`✅ Generated challan numbers for ${studentsToProcess.length} students!`)
+    alert(`Generated challan numbers for ${studentsToProcess.length} students!`)
   }
 
   if (loading) {
@@ -363,7 +363,7 @@ export default function BulkUpdateFees() {
                 Clear All
               </button>
               <button onClick={generateBulkChallanNumbers} className={styles.actionButton}>
-                🔢 Generate Challan Numbers
+                Generate Challan Numbers
               </button>
               
               {/* Course-specific selection */}
@@ -521,7 +521,7 @@ export default function BulkUpdateFees() {
                       Total Amount: <strong>₹{getTotalSelectedAmount().toLocaleString()}</strong>
                     </p>
                     <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.5rem' }}>
-                      ✅ Email confirmation will be sent to admin for all payments
+                      Email confirmation will be sent to admin for all payments
                     </p>
                   </div>
                 </div>
