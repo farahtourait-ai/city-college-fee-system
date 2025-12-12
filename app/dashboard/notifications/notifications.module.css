@@ -1,0 +1,752 @@
+.container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loadingSpinner {
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: white;
+  padding: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.backButton {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.main {
+  padding: 2rem 0;
+}
+
+/* Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-left: 4px solid #059669;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.statSubtext {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+/* Search Section */
+.searchSection {
+  margin-bottom: 2rem;
+}
+
+.searchContainer {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 45px 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.clearSearchButton {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clearSearchButton svg {
+  width: 20px;
+  height: 20px;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.clearSearchButton:hover svg {
+  color: #059669;
+}
+
+.searchInfo {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Results Summary */
+.resultsSummary {
+  margin-bottom: 2rem;
+}
+
+.resultsSuccess {
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #065f46;
+}
+
+.resultsWarning {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #92400e;
+}
+
+.resultsSuccess h3,
+.resultsWarning h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.resultsDetails {
+  margin-top: 1rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.resultSuccess {
+  background: #dcfce7;
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.resultFailed {
+  background: #fee2e2;
+  padding: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.resultFailed span {
+  color: #dc2626;
+}
+
+.closeResultsButton {
+  margin-top: 1rem;
+  background: none;
+  border: 1px solid #94a3b8;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Content Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Students Section */
+.studentsSection {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.sectionHeader {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #f8fafc;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.sectionSubtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.selectionActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.selectAllButton {
+  background: #059669;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.selectAllButton:hover {
+  background: #047857;
+}
+
+.clearButton {
+  background: #dc2626;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clearButton:hover {
+  background: #b91c1c;
+}
+
+.emptyState {
+  padding: 3rem;
+  text-align: center;
+  color: #64748b;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.emptyState h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.emptyState p {
+  margin-bottom: 1.5rem;
+}
+
+.clearSearchBtn {
+  background: #059669;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clearSearchBtn:hover {
+  background: #047857;
+}
+
+.studentsList {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.studentCard {
+  display: flex;
+  align-items: flex-start;
+  padding: 1.25rem;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 1rem;
+}
+
+.studentCard:hover {
+  background: #f8fafc;
+}
+
+.studentCard.selected {
+  background: #f0fdf4;
+  border-left: 4px solid #059669;
+}
+
+.studentCard:last-child {
+  border-bottom: none;
+}
+
+.checkbox {
+  margin-top: 0.25rem;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.studentInfo {
+  flex: 1;
+}
+
+.studentInfo h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.studentInfo p {
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.contact {
+  font-size: 0.85rem !important;
+  color: #94a3b8 !important;
+}
+
+.feeDetails {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.amount {
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.overdue {
+  color: #d97706;
+  font-weight: 500;
+}
+
+.highlightMatch {
+  color: #059669;
+  font-weight: bold;
+  margin-left: 0.25rem;
+}
+
+.highlightText {
+  background-color: #fef3c7;
+  padding: 1px 4px;
+  border-radius: 4px;
+  color: #92400e;
+  font-weight: 600;
+}
+
+/* Notification Section */
+.notificationSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.controlsCard, .historyCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.controlsCard h3, .historyCard h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+}
+
+.controlGroup {
+  margin-bottom: 1.5rem;
+}
+
+.controlGroup label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.typeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.typeButton {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.typeButton:hover {
+  border-color: #059669;
+}
+
+.typeButton.active {
+  background: #059669;
+  color: white;
+  border-color: #059669;
+}
+
+.messageInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.messageInput:focus {
+  outline: none;
+  border-color: #059669;
+}
+
+.helperText {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.previewBox {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  white-space: pre-line;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.sendActions {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1.5rem;
+}
+
+.sendButton {
+  width: 100%;
+  background: #059669;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.sendButton:hover:not(:disabled) {
+  background: #047857;
+  transform: translateY(-1px);
+}
+
+.sendButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.sendInfo {
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.sendInfo p {
+  margin: 0.25rem 0;
+}
+
+.contactCount {
+  color: #d97706;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* History */
+.noHistory {
+  text-align: center;
+  color: #64748b;
+  padding: 2rem;
+  font-style: italic;
+}
+
+.historyList {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.historyItem {
+  padding: 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.3s ease;
+}
+
+.historyItem:hover {
+  background: #f8fafc;
+}
+
+.historyItem:last-child {
+  border-bottom: none;
+}
+
+.historyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.studentName {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.logType {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.historyDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.sentTime {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.showingText {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Setup Instructions */
+.setupInstructions {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.setupInstructions h4 {
+  color: #0369a1;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.setupInstructions ol {
+  color: #64748b;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.setupInstructions li {
+  margin-bottom: 0.5rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sectionHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .selectionActions {
+    justify-content: flex-start;
+  }
+  
+  .searchContainer {
+    max-width: 100%;
+  }
+  
+  .searchInput {
+    font-size: 0.9rem;
+    padding: 12px 45px 12px 14px;
+    height: 44px;
+  }
+  
+  .clearSearchButton {
+    right: 10px;
+    top: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    font-size: 0.85rem;
+    padding: 10px 40px 10px 12px;
+    height: 42px;
+  }
+  
+  .clearSearchButton {
+    right: 8px;
+    top: 10px;
+  }
+  
+  .searchInfo {
+    font-size: 0.8rem;
+  }
+  
+  .typeButtons {
+    flex-direction: column;
+  }
+}

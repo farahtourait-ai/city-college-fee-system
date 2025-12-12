@@ -1,0 +1,782 @@
+.container {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loadingSpinner {
+  font-size: 1.2rem;
+  color: #64748b;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  padding: 2rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.addButton {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.addButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.main {
+  padding: 2rem 0;
+}
+
+/* Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  border-left: 4px solid #dc2626;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.statSubtext {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+
+/* Defaulters Section */
+.defaultersSection {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sectionHeader {
+  margin-bottom: 2rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #64748b;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.emptyState h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.emptyState p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Defaulters List */
+.defaultersList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.defaulterCard {
+  background: #fef2f2;
+  border: 2px solid #fecaca;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.defaulterCard:hover {
+  border-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.15);
+}
+
+.defaulterCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+/* Defaulter Header */
+.defaulterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.defaulterInfo {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+}
+
+.avatarPlaceholder {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
+.studentTextInfo {
+  flex: 1;
+}
+
+.defaulterName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.defaulterDetails {
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.defaulterContact {
+  color: #64748b;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.pendingAmount {
+  text-align: right;
+  flex-shrink: 0;
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #dc2626;
+  margin-bottom: 0.25rem;
+}
+
+.amountLabel {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Defaulter Meta Information */
+.defaulterMeta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.metaItem {
+  color: #64748b;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metaItem strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+.overdueNormal {
+  color: #d97706;
+  font-weight: 600;
+}
+
+.overdueCritical {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* Pending Fees */
+.pendingFees {
+  margin-bottom: 1.5rem;
+}
+
+.pendingFees h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #fecaca;
+}
+
+.feeList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.feeItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: white;
+  border-radius: 6px;
+  border-left: 3px solid #dc2626;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.feeItem:hover {
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feeAmount {
+  font-weight: 600;
+  color: #dc2626;
+  min-width: 100px;
+}
+
+.feeDueDate {
+  color: #64748b;
+  min-width: 120px;
+}
+
+.feeYear {
+  color: #64748b;
+  min-width: 100px;
+}
+
+/* Action Buttons */
+.defaulterActions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.reminderButton {
+  background-color: #dc2626;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.reminderButton:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.viewButton {
+  background-color: #667eea;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewButton:hover {
+  background-color: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.addFeeButton {
+  background-color: #10b981;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addFeeButton:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .defaulterHeader {
+    flex-direction: column;
+  }
+  
+  .pendingAmount {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .defaulterMeta {
+    grid-template-columns: 1fr;
+  }
+  
+  .feeItem {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  
+  .defaulterActions {
+    flex-direction: column;
+  }
+  
+  .defaulterActions button,
+  .defaulterActions a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .defaultersSection {
+    padding: 1rem;
+  }
+  
+  .defaulterCard {
+    padding: 1rem;
+  }
+  
+  .defaulterInfo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .studentTextInfo {
+    text-align: center;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.refreshButton {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.refreshButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(180deg);
+}
+
+.refreshButtonSmall {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.refreshButtonSmall:hover {
+  background: #e2e8f0;
+}
+
+.sectionActions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.emptyActions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.viewFeesButton {
+  background: #667eea;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.viewFeesButton:hover {
+  background: #5a6fd8;
+  transform: translateY(-2px);
+}
+
+.viewStudentsButton {
+  background: #10b981;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.viewStudentsButton:hover {
+  background: #059669;
+  transform: translateY(-2px);
+}
+
+.feeDetails {
+  flex: 1;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.feeStatus {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.overdueWarning {
+  color: #d97706;
+  font-weight: 600;
+}
+
+.recordCount {
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.summaryFooter {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.summaryStats {
+  flex: 1;
+}
+
+.summaryStats p {
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.summaryDetails {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.summaryItem {
+  font-size: 0.9rem;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.bulkReminderButton {
+  background: #dc2626;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bulkReminderButton:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* Search Section */
+.searchSection {
+  margin-bottom: 2rem;
+}
+
+.searchContainer {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 12px 45px 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: white;
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.clearSearchButton {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0.8;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+
+.clearSearchButton:hover {
+  color: #dc2626;
+  background-color: transparent;
+}
+
+.clearSearchButton svg {
+  width: 20px;
+  height: 20px;
+  color: #64748b;
+  transition: color 0.2s ease;
+}
+
+.clearSearchButton:hover svg {
+  color: #dc2626;
+}
+
+.searchInfo {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #64748b;
+  text-align: center;
+}
+
+/* Email Button */
+.emailButton {
+  background: #3b82f6;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.emailButton:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.emailButton:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Contact styles */
+.emailHighlight {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.phoneText {
+  color: #64748b;
+}
+
+.hasEmail {
+  color: #059669;
+  font-weight: 600;
+}
+
+.noEmail {
+  color: #dc2626;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headerActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .summaryFooter {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .summaryDetails {
+    justify-content: center;
+  }
+}
